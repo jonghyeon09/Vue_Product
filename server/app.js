@@ -3,6 +3,7 @@ const app = express();
 const session = require("express-session");
 const fs = require("fs");
 
+app.listen(process.env.PORT || 8080);
 // const cors = require("cors");
 
 // let corsOption = {
@@ -30,9 +31,9 @@ app.use(
   })
 );
 
-const server = app.listen(3000, () => {
-  console.log("Server started. port 3000.");
-});
+// const server = app.listen(3000, () => {
+//   console.log("Server started. port 3000.");
+// });
 
 let sql = require("./sql.js");
 
