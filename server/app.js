@@ -3,12 +3,16 @@ const app = express();
 const session = require("express-session");
 const fs = require("fs");
 
-app.listen(process.env.PORT || 8080);
+app.get("/", function (req, res) {
+  res.sendFile(__dirname, "/dist/index.html");
+});
+// app.listen(process.env.PORT || 8080);
+
 app.use(express.static("dist"));
 // const cors = require("cors");
 
 // let corsOption = {
-//   origin: "http://localhost:8080", // 허락하는 요청 주소
+//   origin: "http://localhost:8080 ", // 허락하는 요청 주소
 //   credentials: true, // true로 하면 설정한 내용을 response 헤더에 추가 해줍니다.
 // };
 
@@ -32,9 +36,9 @@ app.use(
   })
 );
 
-// const server = app.listen(3000, () => {
-//   console.log("Server started. port 3000.");
-// });
+const server = app.listen(3000, () => {
+  console.log("Server started. port 3000.");
+});
 
 let sql = require("./sql.js");
 
