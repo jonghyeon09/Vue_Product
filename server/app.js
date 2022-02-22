@@ -4,6 +4,7 @@ const session = require("express-session");
 const fs = require("fs");
 
 app.listen(process.env.PORT || 8080);
+app.use(express.static("dist"));
 // const cors = require("cors");
 
 // let corsOption = {
