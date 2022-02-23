@@ -10,7 +10,7 @@
           <input
             type="text"
             class="form-control"
-            v-model="product.product_name"
+            v-model="heroku_18126b647c6c620.product_name"
           />
         </div>
       </div>
@@ -23,7 +23,7 @@
             <input
               type="number"
               class="form-control"
-              v-model="product.product_price"
+              v-model="heroku_18126b647c6c620.product_price"
             />
             <span class="input-group-text">원</span>
           </div>
@@ -38,7 +38,7 @@
             <input
               type="number"
               class="form-control"
-              v-model="product.delivery_price"
+              v-model="heroku_18126b647c6c620.delivery_price"
             />
             <span class="input-group-text">원</span>
           </div>
@@ -53,7 +53,7 @@
             <input
               type="number"
               class="form-control"
-              v-model="product.add_delivery_price"
+              v-model="heroku_18126b647c6c620.add_delivery_price"
             />
             <span class="input-group-text">원</span>
           </div>
@@ -100,7 +100,11 @@
       <div class="mb-3 row">
         <label for="inputPassword" class="col-sm-2 col-form-label">태그</label>
         <div class="col-md-9">
-          <input type="text" class="form-control" v-model="product.tags" />
+          <input
+            type="text"
+            class="form-control"
+            v-model="heroku_18126b647c6c620.tags"
+          />
         </div>
       </div>
       <div class="mb-3 row">
@@ -112,7 +116,7 @@
             <input
               type="number"
               class="form-control"
-              v-model="product.outbound_days"
+              v-model="heroku_18126b647c6c620.outbound_days"
             />
             <span class="input-group-text">일 이내 출고</span>
           </div>
@@ -138,7 +142,7 @@
 export default {
   data() {
     return {
-      product: {
+      heroku_18126b647c6c620: {
         product_name: "",
         product_price: 0,
         delivery_price: 0,
@@ -238,34 +242,42 @@ export default {
       this.category3 = category3;
     },
     productInsert() {
-      if (this.product.product_name == "") {
+      if (this.heroku_18126b647c6c620.product_name == "") {
         return this.$swal("제품명은 필수 입력 값 입니다.");
       }
 
-      if (this.product.product_price == "" || this.product.product_price == 0) {
+      if (
+        this.heroku_18126b647c6c620.product_price == "" ||
+        this.heroku_18126b647c6c620.product_price == 0
+      ) {
         return this.$swal("제품 가격을 입력하세요.");
       }
 
       if (
-        this.product.delivery_price == "" ||
-        this.product.delivery_price == 0
+        this.heroku_18126b647c6c620.delivery_price == "" ||
+        this.heroku_18126b647c6c620.delivery_price == 0
       ) {
         return this.$swal("배송료를 입력하세요.");
       }
 
-      if (this.product.outbound_days == "" || this.product.outbound_days == 0) {
+      if (
+        this.heroku_18126b647c6c620.outbound_days == "" ||
+        this.heroku_18126b647c6c620.outbound_days == 0
+      ) {
         return this.$swal("출고일을 입력하세요.");
       }
 
-      this.product.category_id = this.categoryList.filter((c) => {
-        return (
-          c.category1 == this.cate1 &&
-          c.category2 == this.cate2 &&
-          c.category3 == this.cate3
-        );
-      })[0].id;
+      this.heroku_18126b647c6c620.category_id = this.categoryList.filter(
+        (c) => {
+          return (
+            c.category1 == this.cate1 &&
+            c.category2 == this.cate2 &&
+            c.category3 == this.cate3
+          );
+        }
+      )[0].id;
 
-      console.log(this.product.category_id);
+      console.log(this.heroku_18126b647c6c620.category_id);
 
       this.$swal
         .fire({
@@ -276,7 +288,9 @@ export default {
         })
         .then(async (result) => {
           if (result.isConfirmed) {
-            await this.$api("/api/productInsert", { param: [this.product] });
+            await this.$api("/api/productInsert", {
+              param: [this.heroku_18126b647c6c620],
+            });
             this.$swal.fire("저장되었습니다!", "", "success");
             this.$router.push({ path: "/sales" });
           }

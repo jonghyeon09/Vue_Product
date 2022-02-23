@@ -6,7 +6,9 @@ const fs = require("fs");
 app.get("/", function (req, res) {
   res.sendFile(__dirname, "/dist/index.html");
 });
-// app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || 3000, () => {
+  console.log(process.env.PORT);
+});
 
 app.use(express.static("dist"));
 // const cors = require("cors");
@@ -36,9 +38,10 @@ app.use(
   })
 );
 
-const server = app.listen(3000, () => {
-  console.log("Server started. port 3000.");
-});
+// const server = app.listen(3000 || process.env.PORT, () => {
+//   console.log("Server started. port 3000.");
+//   console.log(process.env.PORT);
+// });
 
 let sql = require("./sql.js");
 
@@ -49,11 +52,18 @@ fs.watchFile(__dirname + "/sql.js", (curr, prev) => {
 });
 
 const db = {
-  database: "product",
-  connectionLimit: 10,
-  host: "127.0.0.1",
-  user: "root",
-  password: "1111",
+  database: "heroku_18126b647c6c620",
+  // connectionLimit: 10,
+  host: "us-cdbr-east-05.cleardb.net",
+  user: "beb26a5fba5d0a",
+  password: "1a9ef53b",
+  multipleStatements: true,
+  typeCast: function (field, next) {
+    if (field.type == "VAR_STRING") {
+      return field.string();
+    }
+    return next();
+  },
 };
 
 const dbPool = require("mysql").createPool(db);

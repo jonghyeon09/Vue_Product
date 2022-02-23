@@ -15,26 +15,30 @@
         <div
           class="col-xl-3 col-lg-4 col-md-6"
           :key="i"
-          v-for="(product, i) in productList"
+          v-for="(heroku_18126b647c6c620, i) in productList"
         >
           <div class="card" style="width: 18rem">
-            <a @click="goToDetail(product.id)" style="cursor: pointer"
+            <a
+              @click="goToDetail(heroku_18126b647c6c620.id)"
+              style="cursor: pointer"
               ><img
-                :src="`/download/${product.id}/${product.path}`"
+                :src="`/download/${heroku_18126b647c6c620.id}/${heroku_18126b647c6c620.path}`"
                 class="card-img-top"
                 alt="..."
             /></a>
             <div class="card-body">
-              <h5 class="card-title">{{ product.product_name }}</h5>
+              <h5 class="card-title">
+                {{ heroku_18126b647c6c620.product_name }}
+              </h5>
               <p class="card-text">
                 <span class="badge bg-dark text-white me-1">{{
-                  product.category1
+                  heroku_18126b647c6c620.category1
                 }}</span>
                 <span class="badge bg-dark text-white me-1">{{
-                  product.category2
+                  heroku_18126b647c6c620.category2
                 }}</span>
                 <span class="badge bg-dark text-white">{{
-                  product.category3
+                  heroku_18126b647c6c620.category3
                 }}</span>
               </p>
               <div class="d-flex justify-content-between align-items-center">
@@ -52,7 +56,9 @@
                     주문하기
                   </button>
                 </div>
-                <small class="text-dark">{{ product.product_price }}원</small>
+                <small class="text-dark"
+                  >{{ heroku_18126b647c6c620.product_price }}원</small
+                >
               </div>
             </div>
           </div>

@@ -18,37 +18,37 @@
           </tr>
         </thead>
         <tbody>
-          <tr :key="i" v-for="(product, i) in productList">
+          <tr :key="i" v-for="(heroku_18126b647c6c620, i) in productList">
             <td>
               <img
-                v-if="product.path != null"
-                :src="`/download/${product.id}/${product.path}`"
+                v-if="heroku_18126b647c6c620.path != null"
+                :src="`/download/${heroku_18126b647c6c620.id}/${heroku_18126b647c6c620.path}`"
                 style="height: 50px; width: auto"
               />
             </td>
-            <td>{{ product.product_name }}</td>
-            <td>{{ product.product_price }}</td>
-            <td>{{ product.delivery_price }}</td>
-            <td>{{ product.add_delivery_price }}</td>
+            <td>{{ heroku_18126b647c6c620.product_name }}</td>
+            <td>{{ heroku_18126b647c6c620.product_price }}</td>
+            <td>{{ heroku_18126b647c6c620.delivery_price }}</td>
+            <td>{{ heroku_18126b647c6c620.add_delivery_price }}</td>
             <td>
               <button
                 type="button"
                 class="btn btn-info me-1"
-                @click="goToImageInsert(product.id)"
+                @click="goToImageInsert(heroku_18126b647c6c620.id)"
               >
                 사진등록
               </button>
               <button
                 type="button"
                 class="btn btn-warning me-1"
-                @click="goToUpdate(product.id)"
+                @click="goToUpdate(heroku_18126b647c6c620.id)"
               >
                 수정
               </button>
               <button
                 type="button"
                 class="btn btn-danger"
-                @click="deleteProduct(product.id)"
+                @click="deleteProduct(heroku_18126b647c6c620.id)"
               >
                 삭제
               </button>
