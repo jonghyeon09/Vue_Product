@@ -6,4 +6,5 @@
 로그인이 되면 제품등록페이지가 나타나고 제품등록을 할 수 있습니다.
 사진등록까지 하면 제품리스트에 등록한 제품이 나타납니다.
 node.js, MariaDB를 이용해서 heroku에 배포하였습니다.
+---
 https://product-sales-web-app.herokuapp.com/
